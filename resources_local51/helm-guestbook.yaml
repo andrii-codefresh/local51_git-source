@@ -2,10 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: helm-guestbook
-  labels:
-    label: true
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
+  labels:
+    label: true
 spec:
   project: default
   source:
@@ -25,5 +25,5 @@ spec:
       - Replace=false
       - PruneLast=false
       - Validate=true
-      - CreateNamespace=false
+      - CreateNamespace=true
       - ApplyOutOfSyncOnly=false
