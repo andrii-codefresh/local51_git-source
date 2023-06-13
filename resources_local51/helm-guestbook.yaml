@@ -5,7 +5,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
   labels:
-    label: "true"
+    label.io/label: "true"
 spec:
   project: default
   source:
