@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: helm-guestbook
   labels:
-    label.io/label: true
+    label: true
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
 spec:
