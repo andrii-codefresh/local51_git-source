@@ -5,7 +5,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io/foreground
   labels:
-    label: true
+    label: "true"
 spec:
   project: default
   source:
@@ -25,5 +25,5 @@ spec:
       - Replace=false
       - PruneLast=false
       - Validate=true
-      - CreateNamespace=true
+      - CreateNamespace=false
       - ApplyOutOfSyncOnly=false
