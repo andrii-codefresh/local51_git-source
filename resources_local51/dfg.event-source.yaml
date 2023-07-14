@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: dfg
+spec:
+  eventBusName: codefresh-eventbus
+  service:
+    ports:
+      - port: 80
+  template:
+    serviceAccountName: argo-server
+  github:
+    github-844679e5-85ca-4460-9a15-47edbbc97c0e:
+      events:
+        - release
+      repositories:
+        - owner: andrii-codefresh
+          names:
+            - test
+      webhook:
+        port: '80'
+        method: POST
+        endpoint: /webhooks/local51/dfg/github-844679e5-85ca-4460-9a15-47edbbc97c0e
+        url: http://andriicf-ingresshost.ngrok.io
+      active: true
+      insecure: false
+      contentType: json
+      deleteHookOnFinish: true
+      apiToken:
+        name: runtime-repo-creds-secret
+        key: password
